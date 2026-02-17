@@ -44,6 +44,22 @@ void loop() {
     M5.Lcd.printf("RSSI: %.1f\n", rssi);
     M5.Lcd.printf("SNR : %.1f\n", snr);
 
+    Serial.println("\n[SX1262] Received packet!");
+    Serial.print("[SX1262] Data: ");
+    Serial.println(str);
+
+    Serial.print("[SX1262] RSSI: ");
+    Serial.print(c6l.radio.getRSSI());  // Received Signal Strength Indicator
+    Serial.println(" dBm");
+
+    Serial.print("[SX1262]  SNR: ");
+    Serial.print(c6l.radio.getSNR());  // Signal-to-Noise Ratio
+    Serial.println(" dB");
+
+    Serial.print("[SX1262] Frequency error: ");
+    Serial.print(c6l.radio.getFrequencyError());
+    Serial.println(" Hz");
+
   } else if (st == RADIOLIB_ERR_RX_TIMEOUT) {
     // no packet; do nothing
   } else if (st == RADIOLIB_ERR_CRC_MISMATCH) {
@@ -51,6 +67,9 @@ void loop() {
   } else {
     Serial.printf("[RX] FAIL code=%d\n", st);
   }
+
+
+
   // small UI refresh pacing
   delay(50);
 }

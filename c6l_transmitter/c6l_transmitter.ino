@@ -65,6 +65,8 @@ void loop() {
     M5.Lcd.printf("[TX] FAIL code=%d\n", st);
   }
 
+  Serial.printf("[SX1262] Sending packet #%d... ", counter);
+
   counter++;
 
   delay(50);
