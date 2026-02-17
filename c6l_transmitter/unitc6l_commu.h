@@ -9,7 +9,7 @@ static constexpr float LORA_BW_KHZ = 125.0f;
 static constexpr uint8_t LORA_SF = 7;
 static constexpr uint8_t LORA_CR_DENOM = 5;  // 4/5 -> denom=5
 static constexpr uint8_t LORA_SYNC_WORD = 0x34;
-static constexpr int8_t TX_POWER_DBM = 13;  // 送信出力，日本国内では13 dBm以下
+static constexpr int8_t TX_POWER_DBM = 13;  // 送信出力 [dBm]，日本国内では13 dBm以下
 static constexpr uint16_t PREAMBLE_LEN = 20;
 static constexpr float TCXO_VOLT = 3.0f;
 static constexpr bool USE_LDO = true;

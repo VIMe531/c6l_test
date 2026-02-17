@@ -1,10 +1,11 @@
 # c6l_test
 こちらの[ブログ][blog]にて使用した，M5Stack社製 M5 Unit C6Lを使用するためのプログラムです．
 使用前には，以下の諸注意等をお読みいただいた上で，ご自身の判断でご使用くださいますようお願いいたします．
+
 [blog]: https://www.switch-science.com/blogs/magazine/m5-c6l-lora
 
 ## 使用に際して
-M5 Unit C6Lでは，使用する周波数帯をプログラム内で設定することができます．868 MHz~923 MHzの周波数に対応していますが，日本国内で使用が認められているLoRaWANの周波数帯域は920.5~928.0 MHzです．また，200 Hzごとにチャンネルが割り当てられており，そのチャンネルに準じた周波数を使用する必要があります．チャンネルに関する技術条件をまとめた[PDF][pdf-soumu]が，総務省から公開されていますので，ご確認の上ご使用ください．
+M5 Unit C6Lでは，使用する周波数帯をプログラム内で設定することができます．868 MHz～923 MHzの周波数に対応していますが，日本国内で使用が認められているLoRaWANの周波数帯域は920.5~928.0 MHzです．また，200 Hzごとにチャンネルが割り当てられており，そのチャンネルに準じた周波数を使用する必要があります．チャンネルに関する技術条件をまとめた[PDF][pdf-soumu]が，総務省から公開されていますので，ご確認の上ご使用ください．
 
 また，M5 Unit C6Lは，最大電波出力が+22 dBm（158.49 mW）のデバイスであり，最大出力での使用には，[陸上移動局][license-soumu]として登録が必要です．登録なしで利用するためには，20 mW以下の出力で使用する必要があります．
 
@@ -60,15 +61,3 @@ ARIBが公開している「[920MHz帯テレメータ用、テレコントロー
 [license-soumu]: https://www.tele.soumu.go.jp/j/adm/system/ml/920mhz/index.htm
 [regulation-pdf]: https://www.arib.or.jp/kikaku/kikaku_tushin/std-t108.html
 
-## プログラムについて
-``
-`static const char* radiolibErrToStr(int st)`
-`static float calcLoRaToAms(size_t payloadLen)`
-`static int checkMaxTxTime(size_t payloadLen)`
-`static inline int carrierSense()`
-`static inline int lbtWithRandomBackoff()`
-`static inline void waitForToAms(size_t payloadLen, uint32_t extra_margin_ms, uint32_t slice_delay_ms)`
-`static inline void TxIntervals(uint32_t off_time_ms = TX_OFF_TIME_MS)`
-`static inline int transmitLoRa(const String& payload, uint32_t extra_margin_ms)`
-
-+13 dBmより小さい値に設定すれば，20 mW以下になります．
